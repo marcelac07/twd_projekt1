@@ -63,13 +63,24 @@ plot_koncowy <- ggplot(df_plot_global, aes(x = reorder(Wojewodztwo, -Odsetek, FU
 
 plot_plakat <- plot_koncowy +
   theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"),
-    plot.subtitle = element_text(hjust = 0.5),
+    panel.background = element_rect(fill = "transparent", color = NA),
+    plot.background = element_rect(fill = "transparent", color = NA),
+    legend.background = element_rect(fill = "transparent", color = NA),
+    legend.box.background = element_rect(fill = "transparent", color = NA),
+    legend.key = element_rect(fill = "transparent", color = NA),
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    axis.line = element_line(color = "black", linewidth = 0.6),
+    axis.ticks = element_line(color = "black", linewidth = 0.5),
+    axis.text = element_text(color = "black"),
+    axis.title = element_text(color = "black"),
+    plot.title = element_text(hjust = 0.5, face = "bold", color = "black"),
+    plot.subtitle = element_text(hjust = 0.5, color = "black"),
     legend.position = "inside",
     legend.position.inside = c(0.98, 0.98),
     legend.justification = c("right", "top"),
-    legend.title = element_text(size = 10, face = "plain"),
-    legend.text = element_text(size = 9)
+    legend.title = element_text(size = 10, face = "plain", color = "black"),
+    legend.text = element_text(size = 9, color = "black")
   )
 
 ggsave("zachorowania_woj_wykres.png", plot = plot_plakat, width = 10, height = 7, dpi = 300, bg = "transparent")
