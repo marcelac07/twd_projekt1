@@ -9,7 +9,6 @@ mandaty <- read.csv("Dane_z_mandatów_karnych.csv")
 
 
 fotoradary <- read.csv("fotoradary_wojewodztwa.csv")
-pijani_woj <- read.csv("pijani_kierowcy_wojewodztwa.csv")
 
 dane_woj <- inner_join(fotoradary, pijani_woj, by = "Województwo")
 
@@ -179,5 +178,9 @@ wykres_skala <- ggplot(df_skala, aes(x = Kategoria, y = Wartosc_znormalizowana, 
   )
 
 print(wykres_skala)
+ggsave("skala_slupki_transparentna.svg",
+       plot = wykres_skala,
+       bg = "transparent",
+       width = 4.4,
+       height = 4.4)
 
-ggsave("skala_slupki_transparentna.png", plot = wykres_skala, bg = "transparent", width = 4.4, height = 4.4, dpi = 300)
